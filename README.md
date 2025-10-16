@@ -14,7 +14,6 @@ ADLS (landing CSV) → Databricks
 landing.dados → bronze.delta → silver.delta → gold (dim_*, fato_*)
 ```
 
-**Documentação completa em: [MkDocs]()**
 
 ## Requisitos 
 
@@ -49,6 +48,7 @@ CREATE SCHEMA IF NOT EXISTS gold_filmes   COMMENT 'Schema para dados gold (Delta
 CREATE VOLUME IF NOT EXISTS landing.dados_filmes
 COMMENT 'Volume para dados brutos (CSV) do domínio filmes';
 ```
+
 
 
 

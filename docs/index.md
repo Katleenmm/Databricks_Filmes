@@ -12,8 +12,6 @@ ADLS (landing CSV) → Databricks
 landing.dados → bronze.delta → silver.delta → gold (dim_*, fato_*)
 ```
 
-**Documentação completa em: [MkDocs]()**
-
 ## Requisitos 
 
 * Conta no Azure com um Azure Data Lake Storage Gen2 criado;

@@ -1,0 +1,17 @@
+mkdocs.yml
+
+site_name: Databricks Filmes
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - toc.integrate
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+nav:
+  - Início: index.md

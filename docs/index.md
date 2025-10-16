@@ -48,7 +48,6 @@ CREATE VOLUME IF NOT EXISTS landing.dados_filmes
 COMMENT 'Volume para dados brutos (CSV) do domínio filmes';
 ```
 
-## Criação de Jobs
 
 
 

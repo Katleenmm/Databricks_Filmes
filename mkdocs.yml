@@ -1,5 +1,3 @@
-mkdocs.yml
-
 site_name: Databricks Filmes
 theme:
   name: material

@@ -1,3 +1,5 @@
+### Documentação completa em [MKDOCS](https://katleenmm.github.io/Databricks_Filmes/)
+
 # Projeto Arquitetura Medalhão com Databricks
 
 Neste projeto, adotamos a arquitetura Medalhão como padrão de design de dados para organizar logicamente o lakehouse, aprimorando de forma incremental a estrutura e a qualidade dos dados à medida que eles fluem pelas três camadas de arquitetura — tabelas Bronze, Prata e Ouro.
@@ -46,6 +48,7 @@ CREATE SCHEMA IF NOT EXISTS gold_filmes   COMMENT 'Schema para dados gold (Delta
 CREATE VOLUME IF NOT EXISTS landing.dados_filmes
 COMMENT 'Volume para dados brutos (CSV) do domínio filmes';
 ```
+
 
 
 

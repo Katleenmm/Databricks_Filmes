@@ -1,0 +1,67 @@
+Mostra todos os arquivos que estão dentro do Volume chamado "dados" que foi criado dentro do catálogo workspace, schema/database default.
+
+```python
+display(dbutils.fs.ls('/'))
+```
+
+```python
+display(dbutils.fs.ls('/Volumes/workspace/landing/dados_filmes'))
+```
+
+Gera um dataframe para cada arquivo que está no Volume "dados".
+
+```python 
+caminho_landing = '/Volumes/workspace/landing/dados_filmes'
+
+df_credits   = spark.read.option("infeschema", "true").option("header", "true").csv(f"{caminho_landing}/credits.csv")
+df_keywords   = spark.read.option("infeschema", "true").option("header", "true").csv(f"{caminho_landing}/keywords.csv")
+df_links   = spark.read.option("infeschema", "true").option("header", "true").csv(f"{caminho_landing}/links.csv")
+df_links_small  = spark.read.option("infeschema", "true").option("header", "true").csv(f"{caminho_landing}/links_small.csv")
+df_movies_metadata  = spark.read.option("infeschema", "true").option("header", "true").csv(f"{caminho_landing}/movies_metadata.csv")
+df_ratings     = spark.read.option("infeschema", "true").option("header", "true").csv(f"{caminho_landing}/ratings.csv")
+df_ratings_small    = spark.read.option("infeschema", "true").option("header", "true").csv(f"{caminho_landing}/ratings_small.csv")
+```
+
+Adiciona uma nova coluna (metadado) de data e hora de processamento e nome do arquivo de origem.
+
+```python
+from pyspark.sql.functions import current_timestamp, lit
+
+df_credits   = df_credits.withColumn("data_hora_bronze", current_timestamp()).withColumn("nome_arquivo", lit("credits.csv"))
+df_keywords     = df_keywords.withColumn("data_hora_bronze", current_timestamp()).withColumn("nome_arquivo", lit("keywords.csv"))
+df_links   = df_links.withColumn("data_hora_bronze", current_timestamp()).withColumn("nome_arquivo", lit("links.csv"))
+df_links_small  = df_links_small.withColumn("data_hora_bronze", current_timestamp()).withColumn("nome_arquivo", lit("links_small.csv"))
+df_movies_metadata = df_movies_metadata.withColumn("data_hora_bronze", current_timestamp()).withColumn("nome_arquivo", lit("movies_metadata.csv"))
+df_ratings     = df_ratings.withColumn("data_hora_bronze", current_timestamp()).withColumn("nome_arquivo", lit("ratings.csv"))
+df_ratings_small   = df_ratings_small.withColumn("data_hora_bronze", current_timestamp()).withColumn("nome_arquivo", lit("ratings_small.csv"))
+```
+
+Salva os dataframes em arquivos delta lake (formato de arquivo) no schema/database "bronze". As tabelas geradas são do tipo MANAGED (gerenciadas).
+
+```python
+df_credits.write.format('delta').mode("overwrite").saveAsTable("bronze_filmes.credits")
+df_keywords.write.format('delta').mode("overwrite").saveAsTable("bronze_filmes.keywords")
+df_links.write.format('delta').mode("overwrite").saveAsTable("bronze_filmes.links")
+df_links_small.write.format('delta').mode("overwrite").saveAsTable("bronze_filmes.links_small")
+df_movies_metadata.write.format('delta').mode("overwrite").saveAsTable("bronze_filmes.movies_metadata")
+df_ratings.write.format('delta').mode("overwrite").saveAsTable("bronze_filmes.ratings")
+df_ratings_small.write.format('delta').mode("overwrite").saveAsTable("bronze_filmes.ratings_small")
+```
+
+Verifica os dados gravados no formato delta lake tipo MANAGED na camada bronze.
+
+```sql 
+SHOW TABLES IN bronze_filmes
+```
+
+Vendo os detalhes de um tabela delta lake.
+
+```sql 
+DESCRIBE DETAIL bronze_filmes.credits;
+```
+
+Mostra se a tabela é MANAGED Ou EXTERNAL.
+
+```sql
+DESCRIBE EXTENDED bronze_filmes.credits;
+```

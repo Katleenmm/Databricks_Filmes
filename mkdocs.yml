@@ -1,15 +1,82 @@
-site_name: Databricks Filmes
+site_name: Projeto Databricks Filmes
+site_description: Documentação técnica e conceitual do projeto de Data Lakehouse com Spark, Delta Lake e Iceberg
+site_author: Katleen Martins, Hian Rick e Patricia Morais
+repo_url: https://github.com/Katleenmm/Databricks_Filmes
+
+
 theme:
   name: material
+  language: pt-BR
+  font:
+    text: "Roboto"
+    code: "Roboto Mono"
   features:
     - navigation.tabs
+    - navigation.expand
     - navigation.sections
+    - search.suggest
+    - search.highlight
     - content.code.copy
+    - content.action.edit
     - toc.integrate
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - tables
+    - content.tabs.link
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: Modo escuro
+    - scheme: slate
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: Modo claro
+
 nav:
   - Início: index.md
+  - Requisitos: requisitos.md
+  - Dataset: dataset.md
+  - Arquitetura:
+      - Arquitetura Medalhão: arquitetura_medalhao.md
+      - Pipeline de Dados: pipeline_dados.md
+  - Notebooks: 
+      - notebooks.md
+      - Conexão: conexao.md
+      - Filmes 001: filmes_001.md
+      - Filmes 002: filmes_002.md
+      - Filmes 003: filmes_003.md
+      - Filmes 004: filmes_004.md
+      - Filmes 005: filmes_005.md
+
+  - Referências: referencias.md
+
+markdown_extensions:
+  - admonition           # Blocos coloridos (ex: info, tip, warning)
+  - codehilite           # Realce de sintaxe para blocos de código
+  - footnotes            # Notas de rodapé
+  - tables               # Suporte a tabelas Markdown
+  - toc:
+      permalink: true
+  - attr_list            # Permite definir atributos HTML nos elementos
+  - md_in_html           # Markdown dentro de blocos HTML
+  - pymdownx.details     # Blocos recolhíveis (ex: <details>)
+  - pymdownx.superfences # Permite múltiplos blocos de código
+  - pymdownx.emoji       # Suporte a emojis 😄
+  - pymdownx.tabbed      # Abas de conteúdo
+  - pymdownx.highlight   # Destaques em códigos
+  - pymdownx.keys        # Representação de teclas ⌘
+  - pymdownx.tasklist    # Listas de tarefas com checkbox
+  - pymdownx.arithmatex  # Fórmulas matemáticas
+  - pymdownx.progressbar # Barras de progresso
+  - pymdownx.snippets    # Inclusão de arquivos externos
+
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - mermaid2
+
+

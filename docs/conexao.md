@@ -12,8 +12,8 @@ jdbc_url = (
 )
 
 db_properties = {
-    "user": "postgres.tofmiplvfvfdzwdaqpqd",           
-    "password": "Hian6606'-'",         
+    "user": #db_user,#     
+    "password": #db_password#,         
     "driver": "org.postgresql.Driver",
 }
 

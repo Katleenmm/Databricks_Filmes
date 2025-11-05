@@ -50,7 +50,8 @@ nav:
       - Filmes 004: filmes_004.md
       - Filmes 005: filmes_005.md
   - Jobs e Pipelines:
-      - Supabase.md
+      - Supabase: Supabase.md
+      - Jobs: jobs.md
 
   - Referências: referencias.md
 

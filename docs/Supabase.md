@@ -105,8 +105,6 @@ print(f"✅ Arquivo CSV salvo com sucesso em: {output_path}")
 | 2️⃣ Leitura | Lê a tabela `links` (movieId, imdbId, tmdbId) | *Bronze* |
 | 3️⃣ Escrita | Grava o conteúdo como arquivo `.csv` no caminho `/Volumes/workspace/landing/dados_filmes/links.csv` | *Landing* |
 
----
-
 
 ---
 

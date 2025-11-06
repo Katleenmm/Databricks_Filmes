@@ -11,7 +11,7 @@ No projeto **Databricks_Filmes**, utilizamos o Supabase como **fonte de dados ex
 
 ## 1. Criando o Banco de Dados no Supabase
 
-### Passos:
+
 
 1. Acesse [https://supabase.com](https://supabase.com) e crie uma conta gratuita.
 2. No painel inicial, clique em **“New Project”**.
@@ -34,7 +34,6 @@ Após criado, você terá acesso a:
 O Supabase permite criar e popular tabelas automaticamente a partir de arquivos .csv.
 Esse método é mais rápido e conveniente quando você já tem dados prontos para importar (como nossa tabela links.csv).
 
-Passos:
 
 1. No painel do Supabase, acesse o menu lateral “Table Editor”.
 
@@ -60,8 +59,6 @@ Após a importação, a tabela links ficará disponível no painel do Supabase, 
 ## 3. Conectando o Databricks ao Supabase via JDBC
 
 No Databricks, criamos um **notebook PySpark** para ler essa tabela diretamente do Supabase e salvar uma cópia no Data Lake (camada *Landing*).
-
-### Código completo:
 
 ```python
 from pyspark.sql import SparkSession
@@ -108,7 +105,7 @@ print(f"✅ Arquivo CSV salvo com sucesso em: {output_path}")
 
 ---
 
-## 🧾 5. Conclusão
+## 5. Conclusão
 
 Esse pipeline estabelece uma **integração simples e segura entre o Supabase e o Databricks**, permitindo que dados relacionais sejam facilmente ingeridos no seu **Data Lakehouse**.
 

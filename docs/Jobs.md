@@ -3,7 +3,7 @@
 ## Visão geral
 Este documento descreve, passo a passo, como criar e configurar os *Jobs* no Databricks para o pipeline do projeto **Databricks_Filmes**. O objetivo é automatizar a execução dos notebooks desde a conexão com o Supabase até a camada **Gold** .
 
-### Notebooks do pipeline (ordem)
+## Notebooks do pipeline (ordem)
 1. `Conexao.ipynb` — arquivo de conexão/credenciais (módulo reutilizável)
 2. `Filmes 001.ipynb` — Criação de Tabela (Landing)
 3. `Filmes 002.ipynb` — Bronze

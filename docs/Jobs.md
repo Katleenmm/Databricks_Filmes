@@ -69,28 +69,6 @@ O objetivo é **automatizar a execução dos notebooks**, desde a conexão com o
 
 ---
 
-##  2. Salvando e Executando o Job
-
-1. Após configurar todas as tarefas, clique em **Create** (ou **Save**).  
-2. Clique em **Run Now** para testar a execução.  
-3. Monitore o pipeline pelo painel **Run details**, onde é possível visualizar:
-- Status de cada etapa (✔️ sucesso / ❌ falha)  
-- Logs de execução  
-- Duração total do pipeline  
-
----
-
-##  3. Automação (Agendamento)
-
-Para automatizar o pipeline:
-1. Dentro do Job criado, vá até **Schedule → Add schedule**.  
-2. Configure:
-- **Frequency:** diária, semanal ou personalizada  
-- **Time zone:** `America/Sao_Paulo`  
-- **Start time:** conforme necessidade  
-
----
-
 ##  4. Resultado Final
 
 Após configurado, o Job executará automaticamente as etapas:
